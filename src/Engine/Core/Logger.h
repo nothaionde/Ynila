@@ -12,9 +12,16 @@ namespace Ynila {
     };
 }
 
-#define YNILA_LOGGER_INFO(...) SPDLOG_INFO(__VA_ARGS__)
-#define YNILA_LOGGER_WARN(...) SPDLOG_WARN(__VA_ARGS__)
-#define YNILA_LOGGER_CRITICAL(...) SPDLOG_CRITICAL(__VA_ARGS__)
-#define YNILA_LOGGER_ERROR(...) SPDLOG_ERROR(__VA_ARGS__)
+#ifndef NDEBUG
+#define YNILA_CORE_LOGGER_INFO(...)     SPDLOG_INFO(__VA_ARGS__)
+#define YNILA_CORE_LOGGER_WARN(...)     SPDLOG_WARN(__VA_ARGS__)
+#define YNILA_CORE_LOGGER_CRITICAL(...) SPDLOG_CRITICAL(__VA_ARGS__)
+#define YNILA_CORE_LOGGER_ERROR(...)    SPDLOG_ERROR(__VA_ARGS__)
+#else
+#define YNILA_CORE_LOGGER_INFO(...)     {}
+#define YNILA_CORE_LOGGER_WARN(...)     {}
+#define YNILA_CORE_LOGGER_CRITICAL(...) {}
+#define YNILA_CORE_LOGGER_ERROR(...)    {}
+#endif
 
 #endif //YNILA_LOGGER_H

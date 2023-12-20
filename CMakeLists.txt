@@ -10,17 +10,33 @@ project (Ynila)
 # Adding a preprocessor directive to suppress warnings
 add_definitions(-D_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out/bin)
+
+
 file(GLOB Ynila_SRC
 	"src/*.h" 
-	"src/*.cpp" 
+	"src/*.cpp"
 	"src/Engine/Core/*.h" 
 	"src/Engine/Core/*.cpp" 
+	"src/Engine/Graphics/*.h" 
+	"src/Engine/Graphics/*.cpp" 
+	"src/Engine/Graphics/OpenGL/*.h" 
+	"src/Engine/Graphics/OpenGL/*.cpp" 
 	"src/Sandbox/*.h" 
 	"src/Sandbox/*.cpp"
 	)
 add_executable (${PROJECT_NAME} 
 	${Ynila_SRC}
 		)
+
+set_target_properties( ${PROJECT_NAME}
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/lib"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/bin"
+)
 
 target_include_directories ( ${PROJECT_NAME}
 	PRIVATE
