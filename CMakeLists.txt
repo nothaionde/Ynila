@@ -24,6 +24,10 @@ file(GLOB Ynila_SRC
 	"src/Engine/Graphics/*.cpp" 
 	"src/Engine/Graphics/OpenGL/*.h" 
 	"src/Engine/Graphics/OpenGL/*.cpp" 
+	"src/Engine/Graphics/GUI/*.h" 
+	"src/Engine/Graphics/GUI/*.cpp" 
+	"src/Engine/Scene/*.h" 
+	"src/Engine/Scene/*.cpp" 
 	"src/Sandbox/*.h" 
 	"src/Sandbox/*.cpp"
 	)

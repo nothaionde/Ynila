@@ -11,8 +11,21 @@ namespace Ynila {
 
         ~Application() = default;
 
+        void Run();
+
+        static Application &GetInstance()
+        {
+            return *s_Instance;
+        };
+
+        Window &GetWindow()
+        {
+            return *m_Window;
+        }
+
     private:
         Window *m_Window;
+        static Application *s_Instance;
     };
 }
 
