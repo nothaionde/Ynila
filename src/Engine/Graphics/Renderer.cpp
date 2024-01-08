@@ -6,7 +6,7 @@ namespace Ynila {
     GLuint VBO, VAO;
     int shaderProgram;
 
-    const char *vertexShaderSource = R"(
+    const char* vertexShaderSource = R"(
     #version 330 core
     layout (location = 0) in vec3 aPos;
     out vec4 vertexColor;
@@ -18,7 +18,7 @@ namespace Ynila {
     }
 )";
 
-    const char *fragmentShaderSource = R"(
+    const char* fragmentShaderSource = R"(
     #version 330 core
     in vec4 vertexColor;
     out vec4 FragColor;
@@ -93,7 +93,7 @@ namespace Ynila {
 
         glUseProgram(shaderProgram);
 
-        GLint colorLocation = glGetUniformLocation(shaderProgram, "color");
+        GLuint colorLocation = glGetUniformLocation(shaderProgram, "color");
 
         glUniform4f(colorLocation, color.x, color.y, color.z, color.w);
 

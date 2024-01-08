@@ -47,13 +47,15 @@ namespace Ynila {
         static float slider1 = 0.0f;
         static float slider2 = 0.0f;
         static float slider3 = 0.0f;
+        static float slider4 = 1.0f;
 
-        ImGui::SliderFloat("Slider 1", &slider1, 0.0f, 1.0f);
-        ImGui::SliderFloat("Slider 2", &slider2, 0.0f, 1.0f);
-        ImGui::SliderFloat("Slider 3", &slider3, 0.0f, 1.0f);
+        ImGui::SliderFloat("Red Color:", &slider1, 0.0f, 1.0f);
+        ImGui::SliderFloat("Green Color:", &slider2, 0.0f, 1.0f);
+        ImGui::SliderFloat("Blue Color:", &slider3, 0.0f, 1.0f);
+        ImGui::SliderFloat("Alpha:", &slider4, 0.0f, 1.0f);
 
         m_Scene = Scene::GetInstance();
-        m_Scene->color = {slider1, slider2, slider3, 1.0f};
+        m_Scene->color = {slider1, slider2, slider3, slider4};
 
         ImGui::End();
 

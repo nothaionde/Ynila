@@ -45,6 +45,8 @@ namespace Ynila {
         if (version == 0) {
             YNILA_CORE_LOGGER_CRITICAL("Failed to initialize OpenGL context!");
         }
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
         m_Scene = new Scene();
     }
 } // namespace Ynila
