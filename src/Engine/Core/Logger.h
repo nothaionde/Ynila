@@ -10,7 +10,7 @@ namespace Ynila {
     {
 
     };
-}
+} // namespace Ynila
 
 #ifndef NDEBUG
 #define YNILA_CORE_LOGGER_INFO(...)     SPDLOG_INFO(__VA_ARGS__)

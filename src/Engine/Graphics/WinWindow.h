@@ -32,23 +32,24 @@ namespace Ynila {
         {
             return m_Window;
         };
+
         uint32_t GetWidth() const override
         {
-			return m_Width;
+            return m_Width;
         }
+
         uint32_t GetHeight() const override
         {
-			return m_Height;
+            return m_Height;
         }
+
     private:
         GLFWwindow *m_Window;
         Scene *m_Scene;
         int m_Width;
         int m_Height;
         std::string m_Title;
-#ifdef IMGUI
-#endif // IMGUI
     };
-}
+} // namespace Ynila
 
 #endif // !GLFWWINDOW_H_

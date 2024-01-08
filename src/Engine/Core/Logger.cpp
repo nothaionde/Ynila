@@ -2,4 +2,4 @@
 
 namespace Ynila {
 
-}
+} // namespace Ynila

@@ -27,6 +27,6 @@ namespace Ynila {
         Window *m_Window;
         static Application *s_Instance;
     };
-}
+} // namespace Ynila
 
 #endif // APPLICATION_H

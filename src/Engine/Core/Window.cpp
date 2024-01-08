@@ -20,4 +20,4 @@ namespace Ynila {
                 return nullptr;
         }
     }
-}
+} // namespace Ynila

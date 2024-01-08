@@ -47,4 +47,4 @@ namespace Ynila {
         }
         m_Scene = new Scene();
     }
-}
+} // namespace Ynila

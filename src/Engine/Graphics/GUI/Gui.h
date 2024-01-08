@@ -15,6 +15,6 @@ namespace Ynila {
 
         void Initialize();
     };
-}
+} // namespace Ynila
 
 #endif // !GUI_H
