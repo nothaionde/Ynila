@@ -3,6 +3,7 @@
 #include "src/Engine/Core/Logger.h"
 
 // Temporary
+#include "src/Engine/Graphics/Renderer.h"
 #include "src/Engine/Scene/Scene.h"
 
 
@@ -12,7 +13,70 @@
 
 namespace Ynila {
 
-    Scene *m_Scene = nullptr;
+    void TriangleTest()
+    {
+        ImGui::Begin("Triangle Test");
+
+        static float slider1 = 1.0f;
+        static float slider2 = 0.0f;
+        static float slider3 = 0.0f;
+        static float slider4 = 1.0f;
+        static float slider5 = 0.0f;
+        static float slider6 = 0.0f;
+        static float slider7 = -1.0f;
+
+        ImGui::SliderFloat("Red Color", &slider1, 0.0f, 1.0f);
+        ImGui::SliderFloat("Green Color", &slider2, 0.0f, 1.0f);
+        ImGui::SliderFloat("Blue Color", &slider3, 0.0f, 1.0f);
+        ImGui::SliderFloat("Alpha", &slider4, 0.0f, 1.0f);
+        ImGui::NewLine();
+        ImGui::SliderFloat("Pos x", &slider5, -1.0f, 1.0f);
+        ImGui::SliderFloat("Pos y", &slider6, -1.0f, 1.0f);
+        ImGui::SliderFloat("Pos z", &slider7, -1.0f, 1.0f);
+
+        Renderer::color = { slider1, slider2, slider3, slider4 };
+        Renderer::pos = { slider5, slider6, slider7 };
+
+        ImGui::End();
+    }
+
+    void CameraTest()
+    {
+        ImGui::Begin("Camera Test");
+
+        static float distance = 0.2f;
+
+        if (ImGui::Button("Up"))
+        {
+            Scene::GetInstance()->m_Camera->MoveUp(distance);
+        }
+        if (ImGui::Button("Down"))
+        {
+            Scene::GetInstance()->m_Camera->MoveDown(distance);
+        }
+        if (ImGui::Button("Left"))
+        {
+            Scene::GetInstance()->m_Camera->MoveLeft(distance);
+        }
+        if (ImGui::Button("Right"))
+        {
+            Scene::GetInstance()->m_Camera->MoveRight(-distance);
+        }
+        if (ImGui::Button("Forward"))
+        {
+            Scene::GetInstance()->m_Camera->MoveForward(distance);
+        }
+        if (ImGui::Button("Backward"))
+        {
+            Scene::GetInstance()->m_Camera->MoveBackward(distance);
+        }
+        if (ImGui::Button("Rotate"))
+        {
+            Scene::GetInstance()->m_Camera->Rotate(45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+        }
+
+        ImGui::End();
+    }
 
     Gui::Gui()
     {
@@ -42,22 +106,8 @@ namespace Ynila {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::Begin("Triangle color");
-
-        static float slider1 = 0.0f;
-        static float slider2 = 0.0f;
-        static float slider3 = 0.0f;
-        static float slider4 = 1.0f;
-
-        ImGui::SliderFloat("Red Color:", &slider1, 0.0f, 1.0f);
-        ImGui::SliderFloat("Green Color:", &slider2, 0.0f, 1.0f);
-        ImGui::SliderFloat("Blue Color:", &slider3, 0.0f, 1.0f);
-        ImGui::SliderFloat("Alpha:", &slider4, 0.0f, 1.0f);
-
-        m_Scene = Scene::GetInstance();
-        m_Scene->color = {slider1, slider2, slider3, slider4};
-
-        ImGui::End();
+        TriangleTest();
+		CameraTest();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

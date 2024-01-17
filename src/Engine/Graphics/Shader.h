@@ -18,6 +18,7 @@ namespace Ynila {
 		void Bind();
 		void Unbind();
 		void UploadUniformFloat4(const std::string& name, const glm::vec4& value);
+		void UploadUniformMat4(const std::string& name, const glm::mat4 value);
 	private:
 		void Compile(const std::vector<std::pair<int, std::string>>& sourceMap);
 	private:

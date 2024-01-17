@@ -6,6 +6,7 @@
 #include <vendor/glm/glm/gtc/type_ptr.hpp>
 
 #include "src/Engine/Graphics/GUI/Gui.h"
+#include "src/Engine/Graphics/Camera.h"
 
 namespace Ynila {
     class Scene
@@ -21,10 +22,9 @@ namespace Ynila {
         }
 
     public:
-        static Scene *Instance;
-        glm::vec3 pos = {1.0f, 1.0f, 1.0f};
-        glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f};
+        std::unique_ptr<Camera> m_Camera;
     private:
+        static Scene *Instance;
         std::unique_ptr<Gui> m_Gui;
     };
 } // namespace Ynila
